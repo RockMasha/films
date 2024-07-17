@@ -1,0 +1,67 @@
+body {
+  background-color: #ddd;
+}
+main {
+  padding-top: 125px;
+}
+.header {
+  position: fixed;
+  top: 0;
+  min-width: 100%;
+  padding: 30px 40px;
+  background-color: #999;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+.header-nav {
+}
+.header-nav__list {
+  display: flex;
+  gap: 45px;
+}
+.header-nav__item {
+}
+.header-nav__link {
+  color: #005;
+  font-size: 30px;
+}
+.popular {
+  margin-bottom: 100px;
+}
+.popular-main-title[hidden] {
+  display: none;
+  overflow: hidden;
+}
+.popular-title {
+  margin-bottom: 30px;
+}
+.most-popular {
+}
+.most-popular__title {
+}
+.most-popular__main-info {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+.most-popular__more-main-info {
+  display: flex;
+}
+.most-popular__film-name {
+  font-size: 30px;
+}
+.reting {
+}
+.most-popular__img {
+}
+.most-popular__text {
+  max-width: 1000px;
+  font-size: 25px;
+}
+
+.title {
+  font-size: 50px;
+}
