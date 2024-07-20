@@ -1,0 +1,15 @@
+.popular {
+  margin-bottom: 100px;
+}
+.popular-main-title[hidden] {
+  display: none;
+  overflow: hidden;
+}
+.popular-title {
+  margin-bottom: 30px;
+}
+.popular > .container > .swiper {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
