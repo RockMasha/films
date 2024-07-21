@@ -1,4 +1,4 @@
-import{f as Qe,F as at,g as nt,i as lt}from"./FilmCards-BpGFBp21.js";function ot(s){const{img:e,name:t,rating:i}=s;return`<li class="card swiper-slide">
+import{f as Qe,F as at,g as nt,i as lt}from"./FilmCards-Ig8KBulU.js";function ot(s){const{img:e,name:t,rating:i}=s;return`<li class="card swiper-slide">
             <img
               class="card__img"
               src='${e||"./img/default_img.jpg"}'
