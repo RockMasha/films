@@ -4,5 +4,5 @@ export async function getSrcImg(srcOfImg) {
   if(srcOfImg){
     return `${imageBaseUrl}${srcOfImg}`;
   }
-  return "../img/default_img.svg"
+  return "./img/default_img.svg"
 }
