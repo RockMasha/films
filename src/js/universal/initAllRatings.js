@@ -13,6 +13,10 @@ export function initAllRatings(ratingAllEls) {
       return;
     }
 
+    setWidthOfActive(value);
+  }
+
+  function setWidthOfActive(value) {
     const ratingActive = ratingEl.querySelector(".rating__active");
     ratingActive.style.width = `${value / 0.1}%`;
   }

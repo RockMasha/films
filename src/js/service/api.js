@@ -15,7 +15,8 @@ export async function fetchListGenres() {
   return data;
 }
 
-export async function fetchFilmsByGenres(genreId, page = 1) {
+export async function fetchFilmsByGenres(info) {
+  const {genreId, page} = info;
   const url = `${BASE_URL}/discover/movie?api_key=${apiKey}&with_genres=${genreId}&page=${page}`;
   const response = await fetch(url);
   const data = await response.json();

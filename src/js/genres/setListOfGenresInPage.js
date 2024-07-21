@@ -4,6 +4,7 @@ import { root } from "./rootOfGenresPage";
 export async function setListOfGenresInPage() {
   const genres = await fetchListGenres();
   let listOfGenres = genres.genres;
+
   const listEl = listOfGenres.map((item) => createItemOfGenres(item));
   root.genresList.innerHTML = listEl.join("");
 }
@@ -15,3 +16,7 @@ function createItemOfGenres(info) {
           </li>
   `;
 }
+
+
+
+

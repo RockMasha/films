@@ -1,15 +1,9 @@
-import { createCardOfFilm } from "../universal/createCardOfFilm";
-import { initAllRatings } from "../universal/initAllRatings";
+import { fetchPopularMovies } from "../service/api";;
+import { FilmCards } from "../universal/FilmCards";
 import { getSliderCard } from "../universal/templateCardFilm/getSliderCard";
-import { popularFilms } from "./popularFilms";
 import { root } from "./rootOfMainPage";
 
 export async function setSliderCardsOfFilms() {
-  const cards = await Promise.all(
-    popularFilms.map((item) => createCardOfFilm(item, getSliderCard))
-  );
-  root.popularSlider.innerHTML = cards.join("");
-
-  const ratingAllEls = root.popularSlider.querySelectorAll(".rating");
-  initAllRatings(ratingAllEls);
+  const filmCards = new FilmCards(root.popularSlider);
+  filmCards.setCardsOfFilms(fetchPopularMovies, false, getSliderCard)
 }

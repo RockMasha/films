@@ -1,7 +1,8 @@
-import { ListFilms } from "./ListFilms";
+import { GenresFilmCards } from "./GenresFilmCards";
 import { root } from "./rootOfGenresPage";
 
-let listFilms = new ListFilms(root.genresMovies);
+let listFilms = new GenresFilmCards(root.genresMovies);
+
 export function setFilmsByGenres(event) {
   const currentEl = event.target.closest(".genres__item");
   if (!currentEl) {
