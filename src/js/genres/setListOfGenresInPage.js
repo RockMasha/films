@@ -12,11 +12,7 @@ export async function setListOfGenresInPage() {
 function createItemOfGenres(info) {
   const { id, name } = info;
   return `<li class="genres__item" data-genres-id="${id}">
-            <p class="genres-item__text">${name}</p>
+            <button class="genres-item__btn">${name}</button>
           </li>
   `;
 }
-
-
-
-

@@ -3,10 +3,12 @@ import { getOriginalCard } from "./templateCardFilm/getOriginalCard";
 
 export async function createSomeCards(
   request,
-  infoOfRequest = false,
+  infoOfRequest,
   templateCard = getOriginalCard
 ) {
-  const infoOfFilms = await request(infoOfRequest);
+  const infoOfFilms = infoOfRequest
+    ? await request(infoOfRequest)
+    : await request();
   const cards = await Promise.all(
     infoOfFilms.map((item) => createCardOfFilm(item, templateCard))
   );

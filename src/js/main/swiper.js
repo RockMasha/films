@@ -3,6 +3,10 @@ import "swiper/css";
 import "swiper/css/bundle";
 
 const swiper = new Swiper(".swiper", {
+  navigation : {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
   loop: true,
   touchRation: 1.5,
   grabCursor: true,
@@ -27,4 +31,5 @@ const swiper = new Swiper(".swiper", {
   observer: true,
   observeParents: true,
   slidesPerView: 4,
+  slidesPerGroup: 2,
 });

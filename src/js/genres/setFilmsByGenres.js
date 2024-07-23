@@ -1,7 +1,7 @@
 import { GenresFilmCards } from "./GenresFilmCards";
 import { root } from "./rootOfGenresPage";
 
-let listFilms = new GenresFilmCards(root.genresMovies);
+let listFilms = new GenresFilmCards(root.genresMovies, root.moreFilmsBox);
 
 export function setFilmsByGenres(event) {
   const currentEl = event.target.closest(".genres__item");
@@ -10,9 +10,6 @@ export function setFilmsByGenres(event) {
   }
 
   listFilms.setCardsOnGenres(currentEl);
-  if (!root.moreFilmsBox.querySelector(".genres__bth-more")) {
-    setBtn();
-  }
 
   changeActiveItem(currentEl);
 }
@@ -27,11 +24,6 @@ function changeActiveItem(currentEl) {
   }
   lastActiveEl = currentEl;
   currentEl.setAttribute("active", "");
-}
-
-function setBtn() {
-  root.moreFilmsBox.innerHTML =
-    '<button class="genres__bth-more">20 more movies</button>';
 }
 
 export function showMoreFilms() {

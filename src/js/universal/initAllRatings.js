@@ -1,7 +1,7 @@
 export function initAllRatings(ratingAllEls) {
   let ratingEl;
-  for (let i = 0; i < ratingAllEls.length; i++) {
-    ratingEl = ratingAllEls[i];
+  for (const i of ratingAllEls) {
+    ratingEl = i;
     setVariableForRating();
   }
 
