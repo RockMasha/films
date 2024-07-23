@@ -16,3 +16,8 @@
   color: rgb(70, 47, 25);
   font-weight: 700;
 }
+.header-nav__link:hover{
+  color: rgb(104, 79, 55);
+  border-bottom: 4px solid rgb(104, 79, 55);
+  transition: border-bottom 0.15s, color 0.15s;
+}

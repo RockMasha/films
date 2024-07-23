@@ -9,17 +9,33 @@
   width: 200px;
 }
 .genres__item {
-  font-size: 27px;
   padding: 25px 30px;
   border-bottom: 5px solid var(--color-active-film);
   border-radius: 25px 0 0 25px;
+  transition: background-color 0.2s;
+}
+.genres__item:hover {
+  background-color: rgba(24, 120, 150, 0.15);
 }
 .genres__item[active] {
   background-color: var(--color-active-film);
 }
+.genres-item__btn{
+  font-size: 27px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition: color 0.2s;
+}
+.genres__item:hover > .genres-item__btn{
+  color: #335;
+}
+.genres__item[active] > .genres-item__btn{
+  color: #114;
+}
 .genres__movies {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 50px;
   align-items: center;
   padding-top: 55px;

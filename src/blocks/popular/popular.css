@@ -6,10 +6,46 @@
   overflow: hidden;
 }
 .popular-title {
-  margin-bottom: 30px;
+  margin-bottom: 70px;
 }
 .popular > .container > .swiper {
   overflow-x: visible;
   overflow-y: visible;
 }
-
+.swiper > .swiper-button-next {
+  right: -50px;
+}
+.swiper > .swiper-button-prev {
+  left: -50px;
+}
+.swiper > .swiper-button-next::after,
+.swiper > .swiper-button-prev::after {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  height: 500px;
+  font-size: 100px;
+  color: rgb(87, 94, 125);
+}
+.swiper > .swiper-button-prev::after {
+  left: -165px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65) 13%,
+    rgba(0, 0, 0, 0.65) 19%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.swiper > .swiper-button-next::after {
+  right: -165px;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.65) 13%,
+    rgba(0, 0, 0, 0.65) 19%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
