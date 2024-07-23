@@ -24,10 +24,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 250px;
-  height: 500px;
-  font-size: 100px;
-  color: rgb(87, 94, 125);
+  min-width: 325px;
+  height: 450px;
+  font-size: 75px;
+  color: rgb(91, 93, 100);
 }
 .swiper > .swiper-button-prev::after {
   left: -165px;
@@ -38,6 +38,7 @@
     rgba(0, 0, 0, 0.65) 50%,
     rgba(0, 0, 0, 0) 100%
   );
+  border-radius: 0 20px 20px 0;
 }
 .swiper > .swiper-button-next::after {
   right: -165px;
@@ -48,4 +49,5 @@
     rgba(0, 0, 0, 0.65) 50%,
     rgba(0, 0, 0, 0) 100%
   );
+  border-radius: 20px 0 0 20px;
 }
