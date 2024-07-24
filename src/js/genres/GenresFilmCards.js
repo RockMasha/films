@@ -1,34 +1,51 @@
 import { fetchFilmsByGenres } from "../service/api";
 import { FilmCards } from "../universal/FilmCards";
+import { showMoreFilms } from "./setFilmsByGenres";
 
 export class GenresFilmCards extends FilmCards {
   #pastGenresId;
 
-  constructor(element, btnBox) {
+  constructor(element) {
     super(element);
-    this.btnBox = btnBox;
+    this.fatherElement = element;
+    this.btn;
     this.page = 1;
     this.genresId;
+    this.isFirstTime = true;
   }
 
   async setCardsOnGenres(genresEl) {
+    if (!this.isFirstTime) {
+      this.#removeBtn();
+    } else {
+      this.isFirstTime = false;
+    }
+
     this.setGenresId(genresEl);
     if (this.#isEqualGenres()) {
       return;
     }
-    this.element.innerHTML = "";
+
+    this.listCardsEl.innerHTML = "";
     this.resetPage();
-    this.setCardsOfFilms();
+    await this.setCardsOfFilms();
+    this.#setBtn();
   }
 
   async setCardsOfFilms() {
-    this.#removeBtn();
+    if (this.page !== 0) {
+      this.#disableBtn();
+      this.#loadBtn()
+    }
     this.nextPage();
     await super.setCardsOfFilms(fetchFilmsByGenres, {
       genreId: this.genresId,
       page: this.page,
     });
-    this.#setBtn();
+    if (this.page !== 1) {
+      this.#activeBtn();
+      this.#unLoadBtn()
+    }
   }
 
   setGenresId(genresEl) {
@@ -47,11 +64,32 @@ export class GenresFilmCards extends FilmCards {
   #isEqualGenres() {
     return this.#pastGenresId === this.genresId;
   }
-  #removeBtn() {
-    this.btnBox.innerHTML = "";
-  }
+
   #setBtn() {
-    this.btnBox.innerHTML =
-      '<button class="genres__bth-more">More movies</button>';
+    const templateBtn = '<button class="genres__bth-more">More movies</button>';
+    this.fatherElement.insertAdjacentHTML("beforeend", templateBtn);
+    this.btn = document.querySelector(".genres__bth-more");
+    this.#activeBtn();
   }
+  #removeBtn() {
+    this.btn.remove();
+  }
+  #disableBtn() {
+    this.btn.removeEventListener("click", showMoreFilms);
+  }
+  #activeBtn() {
+    this.btn.addEventListener("click", showMoreFilms);
+  }
+  #loadBtn(){
+    this.btn.insertAdjacentHTML("beforeend", getLoader())
+  }
+  #unLoadBtn(){
+    const loader = this.btn.querySelector(".loader")
+    loader.remove()
+  }
+}
+
+
+function getLoader() {
+  return `<div class="loader"></div>`;
 }

@@ -3,13 +3,13 @@ import { initAllRatings } from "./initAllRatings";
 
 export class FilmCards {
   constructor(element) {
-    this.element = element;
+    this.listCardsEl = element.querySelector(".cards-list");
   }
 
   async setCardsOfFilms(request, infoOfRequest, template) {
     const cards = await createSomeCards(request, infoOfRequest, template);
-    this.element.insertAdjacentHTML("beforeend", cards.join(""));
-    const ratingAllEls = this.element.querySelectorAll(".rating");
+    this.listCardsEl.insertAdjacentHTML("beforeend", cards.join(""));
+    const ratingAllEls = this.listCardsEl.querySelectorAll(".rating");
     initAllRatings(ratingAllEls);
   }
 }

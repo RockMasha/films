@@ -1,7 +1,7 @@
 import { GenresFilmCards } from "./GenresFilmCards";
 import { root } from "./rootOfGenresPage";
 
-let listFilms = new GenresFilmCards(root.genresMovies, root.moreFilmsBox);
+let listFilms = new GenresFilmCards(root.genresMoviesBlock);
 
 export function setFilmsByGenres(event) {
   const currentEl = event.target.closest(".genres__item");

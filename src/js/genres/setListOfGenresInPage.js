@@ -7,6 +7,7 @@ export async function setListOfGenresInPage() {
 
   const listEl = listOfGenres.map((item) => createItemOfGenres(item));
   root.genresList.innerHTML = listEl.join("");
+  root.genresTypesList.innerHTML = listEl.join("");
 }
 
 function createItemOfGenres(info) {

@@ -1,5 +1,5 @@
 export const root = {
-  popularSlider: document.querySelector(".popular-slider"),
+  popularSlider: document.querySelector(".swiper"),
   mostPopularFilm: {
     name: document.querySelector(".most-popular__film-name"),
     img: document.querySelector(".most-popular__img"),
