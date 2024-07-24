@@ -1,15 +1,14 @@
-:root{
-    --color-active-film: rgba(24, 120, 150, 0.5);
+:root {
+  --color-active-film: rgba(24, 120, 150, 0.5);
 }
 
 .genres__container {
   display: flex;
 }
-.genres__list {
-  width: 200px;
-}
 .genres__item {
-  padding: 25px 30px;
+  max-height: 120px;
+  display: flex;
+  padding: 35px 30px;
   border-bottom: 5px solid var(--color-active-film);
   border-radius: 25px 0 0 25px;
   transition: background-color 0.2s;
@@ -20,19 +19,27 @@
 .genres__item[active] {
   background-color: var(--color-active-film);
 }
-.genres-item__btn{
+/* .genres__container > .swiper > .genres__swiper-pagination {
+  position: relative;
+  left: -40px;
+} */
+.genres-item__btn {
   font-size: 27px;
   border: 1px solid transparent;
   background-color: transparent;
   transition: color 0.2s;
 }
-.genres__item:hover > .genres-item__btn{
+.genres__item:hover > .genres-item__btn {
   color: #335;
 }
-.genres__item[active] > .genres-item__btn{
+.genres__item[active] > .genres-item__btn {
   color: #114;
 }
 .genres__movies {
+  max-width: 1000px;
+  min-height: 1000px;
+  padding-top: 175px;
+  margin-left: 200px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -49,6 +56,7 @@
   gap: 40px;
 }
 .genres__default-inner {
+  height: 1000px;
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -65,9 +73,20 @@
   transform: rotate(45deg);
 }
 .genres__bth-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 30px;
   padding: 10px 25px;
   background-color: #4e7c71;
   border: 1px solid transparent;
   border-radius: 20px;
+}
+.genres__container > .swiper {
+  overflow: visible;
+  position: fixed;
+  width: 200px;
+}
+.genres__container > .swiper > .genres__list {
+  height: 1100px;
 }

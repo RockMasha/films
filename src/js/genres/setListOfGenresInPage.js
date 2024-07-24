@@ -6,13 +6,12 @@ export async function setListOfGenresInPage() {
   let listOfGenres = genres.genres;
 
   const listEl = listOfGenres.map((item) => createItemOfGenres(item));
-  root.genresList.innerHTML = listEl.join("");
   root.genresTypesList.innerHTML = listEl.join("");
 }
 
 function createItemOfGenres(info) {
   const { id, name } = info;
-  return `<li class="genres__item" data-genres-id="${id}">
+  return `<li class="genres__item swiper-slide" data-genres-id="${id}">
             <button class="genres-item__btn">${name}</button>
           </li>
   `;
