@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>genres</title>
-    <script type="module" crossorigin src="/films/assets/nested-CJIabtSq.js"></script>
-    <link rel="modulepreload" crossorigin href="/films/assets/FilmCards-LYkN7Yff.js">
-    <link rel="stylesheet" crossorigin href="/films/assets/nested-DCJdrAib.css">
+    <script type="module" crossorigin src="/films/assets/nested-DKt0x7TY.js"></script>
+    <link rel="modulepreload" crossorigin href="/films/assets/swiper-bundle-uG9oL2dI.js">
+    <link rel="stylesheet" crossorigin href="/films/assets/swiper-bundle-D5VQaUiT.css">
+    <link rel="stylesheet" crossorigin href="/films/assets/nested-CO3zUsqy.css">
   </head>
   <body>
     <header class="header">
@@ -26,9 +27,11 @@
     <main>
       <section class="genres">
   <div class="genres__container container">
-    <ul class="genres__list"></ul>
+    <div class="swiper">
+      <ul class="genres__list swiper-wrapper"></ul>
+    </div>
     <div class="genres__movies">
-      <ul class="genres__movies-list">
+      <ul class="genres__movies-list cards-list">
         <li class="genres__default-inner">
           <p class="genres__default-text">Choose genres, which you wish</p>
           <img
@@ -38,7 +41,6 @@
           />
         </li>
       </ul>
-      <div class="genres__movies-more"></div>
     </div>
   </div>
 </section>
