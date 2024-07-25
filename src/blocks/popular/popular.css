@@ -1,4 +1,5 @@
 .popular {
+  position: relative;
   margin-bottom: 100px;
 }
 .popular-main-title[hidden] {
@@ -9,8 +10,8 @@
   margin-bottom: 70px;
 }
 .popular > .container > .swiper {
-  overflow-x: visible;
-  overflow-y: visible;
+  padding: 50px 0px;
+  overflow: hidden;
 }
 .swiper > .swiper-button-next {
   right: -50px;
@@ -18,36 +19,17 @@
 .swiper > .swiper-button-prev {
   left: -50px;
 }
-.swiper > .swiper-button-next::after,
-.swiper > .swiper-button-prev::after {
+.container > .swiper-button-next::after,
+.container > .swiper-button-prev::after {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 325px;
-  height: 450px;
+  top: -50%;
+  transform: translateY(50px);
   font-size: 75px;
-  color: rgb(91, 93, 100);
+  color: rgb(86, 91, 112);
 }
-.swiper > .swiper-button-prev::after {
-  left: -165px;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.65) 13%,
-    rgba(0, 0, 0, 0.65) 19%,
-    rgba(0, 0, 0, 0.65) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  border-radius: 0 20px 20px 0;
+.container > .swiper-button-prev::after {
+  left: 80px;
 }
-.swiper > .swiper-button-next::after {
-  right: -165px;
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.65) 13%,
-    rgba(0, 0, 0, 0.65) 19%,
-    rgba(0, 0, 0, 0.65) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  border-radius: 20px 0 0 20px;
+.container > .swiper-button-next::after {
+  right: 80px;
 }
