@@ -5,10 +5,14 @@
 .genres__container {
   display: flex;
 }
+.genres > .genres__container > .swiper {
+  position: fixed;
+  max-height: calc(100vh - 75px) ;
+}
 .genres__item {
-  max-height: 120px;
   display: flex;
-  padding: 35px 30px;
+  max-height: 120px;
+  padding: 45px 20px 25px;
   border-bottom: 5px solid var(--color-active-film);
   border-radius: 25px 0 0 25px;
   transition: background-color 0.2s;
@@ -19,14 +23,10 @@
 .genres__item[active] {
   background-color: var(--color-active-film);
 }
-/* .genres__container > .swiper > .genres__swiper-pagination {
-  position: relative;
-  left: -40px;
-} */
 .genres-item__btn {
   font-size: 27px;
-  border: 1px solid transparent;
   background-color: transparent;
+  border: 1px solid transparent;
   transition: color 0.2s;
 }
 .genres__item:hover > .genres-item__btn {
@@ -36,17 +36,16 @@
   color: #114;
 }
 .genres__movies {
+  display: flex;
   max-width: 1000px;
   min-height: 1000px;
-  padding-top: 175px;
-  margin-left: 200px;
-  display: flex;
+  padding-top: 55px;
+  padding-bottom: 45px;
+  margin-left: 224px;
   flex-direction: column;
   flex-grow: 1;
   gap: 50px;
   align-items: center;
-  padding-top: 55px;
-  padding-bottom: 45px;
   background-color: var(--color-active-film);
 }
 .genres__movies-list {
@@ -56,11 +55,11 @@
   gap: 40px;
 }
 .genres__default-inner {
-  height: 1000px;
   display: flex;
+  width: 1000px;
+  height: 1000px;
   justify-content: center;
   gap: 40px;
-  width: 1000px;
 }
 .genres__default-text {
   width: 350px;
@@ -68,25 +67,36 @@
   padding-top: 40px;
 }
 .genres__default-img {
-  max-width: 350px;
-  max-height: 350px;
+  width: 350px;
+  height: 350px;
   transform: rotate(45deg);
 }
 .genres__bth-more {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 30px;
   padding: 10px 25px;
+  font-size: 30px;
   background-color: #4e7c71;
   border: 1px solid transparent;
   border-radius: 20px;
 }
-.genres__container > .swiper {
-  overflow: visible;
+
+.genres__btn-up {
   position: fixed;
-  width: 200px;
+  display: none;
+  bottom: 20px;
+  right: 20px;
+  padding: 20px 20px;
+  font-size: 25px;
+  color: rgb(168, 167, 221);
+  background-color: #3d5876;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
 }
-.genres__container > .swiper > .genres__list {
-  height: 1100px;
+.genres__btn-up > img {
+  margin: 0 auto 10px;
+  width: 50px;
+  height: 50px;
 }

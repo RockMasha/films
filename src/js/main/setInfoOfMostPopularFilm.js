@@ -10,7 +10,8 @@ export async function setInfoOfMostPopularFilm() {
 }
 
 async function getInfoOfMostPopularFilm() {
-  const popularFilms = await fetchPopularMovies();
+  const requestAnswer = await fetchPopularMovies();
+  const { results: popularFilms } = requestAnswer;
   const {
     poster_path: src,
     vote_average: rating,

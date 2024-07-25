@@ -11,14 +11,14 @@ export class GenresFilmCards extends FilmCards {
     this.btn;
     this.page = 1;
     this.genresId;
-    this.isFirstTime = true;
+    this.isNoBtn = true;
   }
 
   async setCardsOnGenres(genresEl) {
-    if (!this.isFirstTime) {
+    if (!this.isNoBtn) {
       this.#removeBtn();
     } else {
-      this.isFirstTime = false;
+      this.isNoBtn = false;
     }
 
     this.setGenresId(genresEl);
@@ -33,18 +33,22 @@ export class GenresFilmCards extends FilmCards {
   }
 
   async setCardsOfFilms() {
-    if (this.page !== 0) {
-      this.#disableBtn();
-      this.#loadBtn()
-    }
     this.nextPage();
+    if (this.page !== 1 || this.#checkNumbOfFilms()) {
+      this.#disableBtn();
+      this.#loadBtn();
+    }
     await super.setCardsOfFilms(fetchFilmsByGenres, {
       genreId: this.genresId,
       page: this.page,
     });
-    if (this.page !== 1) {
+    if (this.#checkNumbOfFilms()) {
+      this.#removeBtn();
+      this.isNoBtn = true;
+    }
+    if (this.page !== 1 && !this.#checkNumbOfFilms()) {
       this.#activeBtn();
-      this.#unLoadBtn()
+      this.#unLoadBtn();
     }
   }
 
@@ -80,15 +84,18 @@ export class GenresFilmCards extends FilmCards {
   #activeBtn() {
     this.btn.addEventListener("click", showMoreFilms);
   }
-  #loadBtn(){
-    this.btn.insertAdjacentHTML("beforeend", getLoader())
+  #loadBtn() {
+    this.btn.insertAdjacentHTML("beforeend", getLoader());
   }
-  #unLoadBtn(){
-    const loader = this.btn.querySelector(".loader")
-    loader.remove()
+  #unLoadBtn() {
+    const loader = this.btn.querySelector(".loader");
+    loader.remove();
+  }
+
+  #checkNumbOfFilms() {
+    return this.page * 20 >= this.max_films;
   }
 }
-
 
 function getLoader() {
   return `<div class="loader"></div>`;

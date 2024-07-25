@@ -5,7 +5,7 @@ export async function fetchPopularMovies() {
   const url = `${BASE_URL}/movie/popular?api_key=${apiKey}&sort_by=release_date.desc&page=1`;
   const response = await fetch(url);
   const data = await response.json();
-  return data.results;
+  return data
 }
 
 export async function fetchListGenres() {
@@ -20,5 +20,5 @@ export async function fetchFilmsByGenres(info) {
   const url = `${BASE_URL}/discover/movie?api_key=${apiKey}&with_genres=${genreId}&page=${page}`;
   const response = await fetch(url);
   const data = await response.json();
-  return data.results;
+  return data
 }

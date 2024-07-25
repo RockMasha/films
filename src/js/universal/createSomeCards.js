@@ -6,11 +6,12 @@ export async function createSomeCards(
   infoOfRequest,
   templateCard = getOriginalCard
 ) {
-  const infoOfFilms = infoOfRequest
+  const requestAnswer = infoOfRequest
     ? await request(infoOfRequest)
     : await request();
+  const { results: infoOfFilms, total_results: maxFilms } = requestAnswer;
   const cards = await Promise.all(
     infoOfFilms.map((item) => createCardOfFilm(item, templateCard))
   );
-  return cards;
+  return {cards, maxFilms};
 }
