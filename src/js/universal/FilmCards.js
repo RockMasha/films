@@ -1,5 +1,4 @@
 import { createSomeCards } from "./createSomeCards";
-import { initAllRatings } from "./initAllRatings";
 
 export class FilmCards {
   constructor(element) {
@@ -10,6 +9,5 @@ export class FilmCards {
     const cards = await createSomeCards(request, infoOfRequest, template);
     this.listCardsEl.insertAdjacentHTML("beforeend", cards.join(""));
     const ratingAllEls = this.listCardsEl.querySelectorAll(".rating");
-    initAllRatings(ratingAllEls);
   }
 }

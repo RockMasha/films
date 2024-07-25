@@ -1,6 +1,5 @@
 import { root } from "./rootOfMainPage";
 import { getSrcImg } from "../universal/getSrcImg";
-import { initAllRatings } from "../universal/initAllRatings";
 import { fetchPopularMovies } from "../service/api";
 
 export async function setInfoOfMostPopularFilm() {
@@ -33,7 +32,6 @@ function setContent(info) {
 }
 
 function setRating(rating) {
-  const ratingValue = document.querySelector(".most-popular-rating__value");
-  ratingValue.textContent = Math.round(rating * 10) / 10;
-  initAllRatings([root.mostPopularFilm.rating]);
+  root.mostPopularFilm.ratingValue.textContent = Math.round(rating * 10) / 10;
+  root.mostPopularFilm.ratingStar.style.width = `${rating / 0.1}%`;
 }
