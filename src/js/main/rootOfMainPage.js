@@ -4,6 +4,8 @@ export const root = {
     name: document.querySelector(".most-popular__film-name"),
     img: document.querySelector(".most-popular__img"),
     rating: document.querySelector(".most-popular-rating"),
+    ratingValue: document.querySelector(".most-popular-rating__value"),
+    ratingStar: document.querySelector(".most-popular-rating__active"),
     text: document.querySelector(".most-popular__text"),
   },
 };
