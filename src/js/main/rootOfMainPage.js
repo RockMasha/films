@@ -1,4 +1,5 @@
 export const root = {
+  mainLink: document.querySelector(".header-nav__link_films"),
   popularSlider: document.querySelector(".swiper"),
   mostPopularFilm: {
     name: document.querySelector(".most-popular__film-name"),
