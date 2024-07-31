@@ -9,7 +9,6 @@ export class FilmCards {
   async setCardsOfFilms(request, infoOfRequest, template) {
     const infoOfCards = await createSomeCards(request, infoOfRequest, template);
     this.listCardsEl.insertAdjacentHTML("beforeend", infoOfCards.cards.join(""));
-    const ratingAllEls = this.listCardsEl.querySelectorAll(".rating");
 
     this.max_films = infoOfCards.maxFilms;
   }

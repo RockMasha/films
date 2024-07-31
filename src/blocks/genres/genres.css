@@ -1,8 +1,11 @@
 :root {
   --color-active-film: rgba(24, 120, 150, 0.5);
 }
-
+.genres{
+  height: 100%;
+}
 .genres__container {
+  height: 100%;
   display: flex;
 }
 .genres > .genres__container > .swiper {
@@ -38,7 +41,7 @@
 .genres__movies {
   display: flex;
   max-width: 1000px;
-  min-height: 1000px;
+  height: 100%;
   padding-top: 55px;
   padding-bottom: 45px;
   margin-left: 224px;
