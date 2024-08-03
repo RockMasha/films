@@ -1,4 +1,4 @@
-import{F as l,f as n,g as u,S as c}from"./swiper-bundle-t_bLrQZw.js";function m(e){const{img:a,name:i,rating:t}=e;return`<li class="card swiper-slide">
+import{F as l,f as n,g as u,S as c}from"./swiper-bundle-8fZQihk-.js";function m(e){const{img:a,name:i,rating:t}=e;return`<li class="card swiper-slide">
             <img
               class="card__img"
               src='${a||"./img/default_img.jpg"}'
