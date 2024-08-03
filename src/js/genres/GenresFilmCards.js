@@ -1,5 +1,6 @@
 import { fetchFilmsByGenres } from "../service/api";
 import { FilmCards } from "../universal/FilmCards";
+import { updateProgressBar } from "./btnUpSettings";
 import { showMoreFilms } from "./setFilmsByGenres";
 
 export class GenresFilmCards extends FilmCards {
@@ -50,6 +51,8 @@ export class GenresFilmCards extends FilmCards {
       this.#activeBtn();
       this.#unLoadBtn();
     }
+    
+    updateProgressBar()
   }
 
   setGenresId(genresEl) {
