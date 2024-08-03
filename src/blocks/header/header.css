@@ -16,11 +16,12 @@
   color: rgb(70, 47, 25);
   font-weight: 700;
 }
-.header-nav__link:hover{
+.header-nav__link:hover {
   color: rgb(104, 79, 55);
 }
 .header-nav__link[active] {
   --color-main: rgb(45, 82, 126);
   color: var(--color-main);
   border-bottom: 4px solid var(--color-main);
+  pointer-events: none;
 }
