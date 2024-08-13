@@ -1,4 +1,4 @@
-import{F as at,f as Qe,g as nt,r as lt}from"./removeContentLoader-C_in6Wsg.js";function ot(s){const{img:e,name:t,rating:i}=s;return`<li class="card swiper-slide">
+import{F as at,f as Qe,g as nt,r as lt}from"./removeContentLoader-CL50FPA8.js";function ot(s){const{img:e,name:t,rating:i}=s;return`<li class="card swiper-slide">
             <img
               class="card__img"
               src='${e||"./img/default_img.jpg"}'
