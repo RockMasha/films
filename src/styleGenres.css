@@ -4,7 +4,7 @@
 @import url("./blocks/genres/genres.css");
 @import url("./blocks/card/card.css");
 @import url("./blocks/rating/rating.css");
-@import url("./blocks/loader/loader.css");
+@import url("./blocks/loaders/btnMoreLoader.css");
 
 body {
   background-color: #ddd;

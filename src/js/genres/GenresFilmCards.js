@@ -91,7 +91,7 @@ export class GenresFilmCards extends FilmCards {
     this.btn.insertAdjacentHTML("beforeend", getLoader());
   }
   #unLoadBtn() {
-    const loader = this.btn.querySelector(".loader");
+    const loader = this.btn.querySelector(".btnMoreLoader");
     loader.remove();
   }
 
@@ -101,5 +101,5 @@ export class GenresFilmCards extends FilmCards {
 }
 
 function getLoader() {
-  return `<div class="loader"></div>`;
+  return `<div class="btnMoreLoader"></div>`;
 }
