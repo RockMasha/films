@@ -1,6 +1,8 @@
-const loadWrapper = document.querySelector(".contentLoad-loaderWrapper")
+const loadWrapper = document.querySelector(".contentLoad-loaderWrapper");
 
 export function removeContentLoader() {
-  loadWrapper.removeAttribute("active");
-  document.body.removeAttribute("lock");
+  setTimeout(() => {
+    loadWrapper.removeAttribute("active");
+    document.body.removeAttribute("lock");
+  }, 1500);
 }
