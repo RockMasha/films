@@ -15,10 +15,9 @@ body[lock] {
 }
 main {
   min-height: 100%;
-  padding-top: 75px;
+  padding-top: 85px;
 }
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
-

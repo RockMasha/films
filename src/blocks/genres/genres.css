@@ -8,14 +8,20 @@
   min-height: 1500px;
   display: flex;
 }
-.genres > .genres__container > .swiper {
+::-webkit-scrollbar {
+  display: none;
+}
+.genres__list-wrapper {
+  overflow: scroll;
   position: fixed;
-  max-height: calc(100vh - 75px);
+}
+.genres__list {
+  max-height: calc(100vh - 85px);
 }
 .genres__item {
   display: flex;
   max-height: 120px;
-  padding: 45px 20px 25px;
+  padding: 35px 20px;
   border-bottom: 5px solid var(--color-active-film);
   border-radius: 25px 0 0 25px;
   transition: background-color 0.2s;
