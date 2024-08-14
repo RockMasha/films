@@ -7,9 +7,23 @@ export class FilmCards {
   }
 
   async setCardsOfFilms(request, infoOfRequest, template) {
-    const infoOfCards = await createSomeCards(request, infoOfRequest, template);
-    this.listCardsEl.insertAdjacentHTML("beforeend", infoOfCards.cards.join(""));
+    let answer;
+    try {
+      const infoOfCards = await createSomeCards(
+        request,
+        infoOfRequest,
+        template
+      );
 
-    this.max_films = infoOfCards.maxFilms;
+      this.listCardsEl.insertAdjacentHTML(
+        "beforeend",
+        infoOfCards.cards.join("")
+      );
+      this.max_films = infoOfCards.maxFilms;
+      answer = "ok"
+    } catch (error) {      
+      answer = "error"
+    }
+    return answer
   }
 }
