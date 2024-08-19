@@ -9,7 +9,8 @@ export function setFilmsByGenres(event) {
     return;
   }
 
-  listFilms.setCardsOnGenres(currentEl);
+  const idCurrentGenres = getGenresId(currentEl);
+  listFilms.setCardsOnGenres(idCurrentGenres);
 
   changeActiveItem(currentEl);
 }
@@ -24,6 +25,10 @@ function changeActiveItem(currentEl) {
   }
   lastActiveEl = currentEl;
   currentEl.setAttribute("active", "");
+}
+
+function getGenresId(genresEl) {
+  return genresEl.dataset.genresId;
 }
 
 export function showMoreFilms() {

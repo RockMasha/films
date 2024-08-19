@@ -1,31 +1,30 @@
 import { fetchFilmsByGenres } from "../service/api";
-import { FilmCards } from "../universal/FilmCards";
+import { createSomeCards } from "../universal/createSomeCards";
 import { updateProgressBar } from "./btnUpSettings";
 import { showMoreFilms } from "./setFilmsByGenres";
 
-export class GenresFilmCards extends FilmCards {
-  #pastGenresId;
-
+export class GenresFilmCards {
   constructor(element) {
-    super(element);
+    this.listCardsEl = element.querySelector(".cards-list");
     this.fatherElement = element;
     this.btn;
-    this.page = 1;
     this.genresId;
+    this.page = 1;
+    this.max_films;
     this.isNoBtn = true;
   }
 
-  async setCardsOnGenres(genresEl) {
+  async setCardsOnGenres(id) {
     if (!this.isNoBtn && this.btn) {
       this.#removeBtn();
     } else {
       this.isNoBtn = false;
     }
 
-    this.setGenresId(genresEl);
-    if (this.#isEqualGenres()) {
+    if (this.#isEqualGenres(id)) {
       return;
     }
+    this.setGenresId(id);
 
     this.listCardsEl.innerHTML = "";
     this.resetPage();
@@ -42,14 +41,26 @@ export class GenresFilmCards extends FilmCards {
       this.#disableBtn();
       this.#loadBtn();
     }
-    const answer = await super.setCardsOfFilms(fetchFilmsByGenres, {
-      genreId: this.genresId,
-      page: this.page,
-    });
+
+    let answer;
+    try {
+      const infoOfCards = await createSomeCards(fetchFilmsByGenres, {
+        genreId: this.genresId,
+        page: this.page,
+      });
+
+      const { cards, maxFilms } = infoOfCards;
+      this.#setCards(cards.join(""));
+      this.#setMaxFilms(maxFilms);
+    } catch (error) {
+      answer = "error";
+    }
+
     if (this.#checkNumbOfFilms()) {
       this.#removeBtn();
       this.isNoBtn = true;
     }
+    
     if (this.page !== 1 && !this.#checkNumbOfFilms()) {
       this.#activeBtn();
       this.#unLoadBtn();
@@ -57,13 +68,11 @@ export class GenresFilmCards extends FilmCards {
 
     updateProgressBar();
 
-    return answer;
+    return answer === "error" ? answer : "ok";
   }
 
-  setGenresId(genresEl) {
-    const genreId = genresEl.dataset.genresId;
-    this.#pastGenresId = this.genresId;
-    this.genresId = genreId;
+  setGenresId(id) {
+    this.genresId = id;
   }
 
   nextPage() {
@@ -73,8 +82,16 @@ export class GenresFilmCards extends FilmCards {
     this.page = 0;
   }
 
-  #isEqualGenres() {
-    return this.#pastGenresId === this.genresId;
+  #isEqualGenres(id) {
+    return this.genresId === id;
+  }
+
+  #setCards(cards) {
+    this.listCardsEl.insertAdjacentHTML("beforeend", cards);
+  }
+
+  #setMaxFilms(numb) {
+    this.max_films = numb;
   }
 
   #setBtn() {

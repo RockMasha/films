@@ -15,7 +15,7 @@ export async function fetchListGenres() {
   return data;
 }
 
-export let controller = null;
+let controller = null;
 export async function fetchFilmsByGenres(info) {
   if(controller){
     controller.abort()
