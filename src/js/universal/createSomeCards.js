@@ -10,8 +10,6 @@ export async function createSomeCards(
     ? await request(infoOfRequest)
     : await request();
   const { results: infoOfFilms, total_results: maxFilms } = requestAnswer;
-  const cards = await Promise.all(
-    infoOfFilms.map((item) => createCardOfFilm(item, templateCard))
-  );
-  return {cards, maxFilms};
+  const cards = infoOfFilms.map((item) => createCardOfFilm(item, templateCard));
+  return { cards, maxFilms };
 }
