@@ -15,15 +15,20 @@ export class GenresFilmCards {
   }
 
   async setCardsOnGenres(id) {
+    if (this.#isEqualGenres(id)) {
+      return;
+    }
+
+    if (!this.#isOnPageCardLoader()) {
+      this.#setCardLoader();
+    }
+
     if (!this.isNoBtn && this.btn) {
       this.#removeBtn();
     } else {
       this.isNoBtn = false;
     }
 
-    if (this.#isEqualGenres(id)) {
-      return;
-    }
     this.setGenresId(id);
 
     this.listCardsEl.innerHTML = "";
@@ -32,6 +37,10 @@ export class GenresFilmCards {
 
     if (answer !== "error") {
       this.#setBtn();
+    }
+
+    if (answer !== "error") {
+      this.#removeCardLoader();
     }
   }
 
@@ -60,7 +69,7 @@ export class GenresFilmCards {
       this.#removeBtn();
       this.isNoBtn = true;
     }
-    
+
     if (this.page !== 1 && !this.#checkNumbOfFilms()) {
       this.#activeBtn();
       this.#unLoadBtn();
@@ -110,11 +119,26 @@ export class GenresFilmCards {
     this.btn.addEventListener("click", showMoreFilms);
   }
   #loadBtn() {
-    this.btn.insertAdjacentHTML("beforeend", getLoader());
+    this.btn.insertAdjacentHTML("beforeend", getBtnLoader());
   }
   #unLoadBtn() {
     const loader = this.btn.querySelector(".btnMoreLoader");
     loader.remove();
+  }
+
+  #setCardLoader() {
+    this.fatherElement.insertAdjacentHTML("beforeend", getCardLoader());
+  }
+  #removeCardLoader() {
+    const loader = this.fatherElement.querySelector(".genresCard-loader");
+    loader.remove();
+  }
+  #isOnPageCardLoader() {
+    const loader = this.fatherElement.querySelector(".genresCard-loader");
+    if (loader) {
+      return true;
+    }
+    return false;
   }
 
   #checkNumbOfFilms() {
@@ -122,6 +146,10 @@ export class GenresFilmCards {
   }
 }
 
-function getLoader() {
+function getBtnLoader() {
   return `<div class="btnMoreLoader"></div>`;
+}
+
+function getCardLoader() {
+  return `<div class="genresCard-loader"></div>`;
 }
