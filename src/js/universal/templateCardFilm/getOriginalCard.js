@@ -1,6 +1,6 @@
 export function getOriginalCard(info) {
   const { img, name, rating } = info;
-
+  
   return `<li class="card">
             <img
               class="card__img"
@@ -13,7 +13,7 @@ export function getOriginalCard(info) {
                 <div class="rating__body">
                   <div style="width:${
                     rating ? rating / 0.1 : 0
-                  }px" class="rating__active"></div>
+                  }%" class="rating__active"></div>
                 </div>
                 <p class="card__rating-value rating__value">${rating}</p>
               </div>
