@@ -37,9 +37,6 @@ export class GenresFilmCards {
 
     if (answer !== "error") {
       this.#setBtn();
-    }
-
-    if (answer !== "error") {
       this.#removeCardLoader();
     }
   }

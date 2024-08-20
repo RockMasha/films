@@ -15,7 +15,7 @@ export function setFilmsByGenres(event) {
   changeActiveItem(currentEl);
 }
 
-let lastActiveEl = "";
+let lastActiveEl = null;
 function changeActiveItem(currentEl) {
   if (lastActiveEl === currentEl) {
     return;

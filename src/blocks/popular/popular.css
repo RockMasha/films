@@ -9,10 +9,11 @@
 .popular-title {
   margin-bottom: 70px;
 }
-.popular > .container > .swiper {
-  padding: 50px 0;
-  overflow: visible;
+.popular .swiper {
+  width: 1375px;
+  padding: 50px 120px;
 }
+
 .swiper > .popular-slider > .swiper-slide {
   max-width: 250px;
 }
@@ -21,21 +22,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc((100vw - 750px) / 2);
-  height: 550px;
-  background-color: #ddd;
-  /* background-color: black; */
-  position: absolute;
-  top: -300px;
-  padding: 25px;
-  transform: translateY(50px);
-  font-size: 75px;
+  width: 150px;
+  height: 500px;
   color: rgb(86, 91, 112);
+  font-size: 75px;
+  position: absolute;
   z-index: 1000;
+  background-color: #ddd;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .swiper > .swiper-button-prev::after {
-  left: -575px;
+  left: -50px;
 }
 .swiper > .swiper-button-next::after {
-  right: -575px;
+  right: -50px;
 }

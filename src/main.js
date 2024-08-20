@@ -11,3 +11,4 @@ await setSliderCardsOfFilms();
 setActiveMainLink();
 
 removeContentLoader();
+
