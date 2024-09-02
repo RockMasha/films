@@ -1,9 +1,10 @@
 import { fetchFilmsByGenres } from "../service/api";
 import { createSomeCards } from "../universal/createSomeCards";
 import { updateProgressBar } from "./btnUpSettings";
-import { showMoreFilms } from "./setFilmsByGenres";
 
 export class GenresFilmCards {
+  #showMoreFilms;
+
   constructor(element) {
     this.listCardsEl = element.querySelector(".cards-list");
     this.fatherElement = element;
@@ -110,10 +111,11 @@ export class GenresFilmCards {
     this.btn.remove();
   }
   #disableBtn() {
-    this.btn.removeEventListener("click", showMoreFilms);
+    this.btn.removeEventListener("click", this.#showMoreFilms);
   }
   #activeBtn() {
-    this.btn.addEventListener("click", showMoreFilms);
+    this.#showMoreFilms = this.setCardsOfFilms.bind(this);
+    this.btn.addEventListener("click", this.#showMoreFilms);
   }
   #loadBtn() {
     this.btn.insertAdjacentHTML("beforeend", getBtnLoader());

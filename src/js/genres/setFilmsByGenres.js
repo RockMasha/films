@@ -30,7 +30,3 @@ function changeActiveItem(currentEl) {
 function getGenresId(genresEl) {
   return genresEl.dataset.genresId;
 }
-
-export function showMoreFilms() {
-  listFilms.setCardsOfFilms();
-}
